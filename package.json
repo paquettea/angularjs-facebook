@@ -1,0 +1,15 @@
+{
+    "name": "angularjs-facebook",
+    "description": "Builds static files",
+    "version": "0.0.1",
+    "dependencies": {
+        "grunt": "*",
+        "karma": "*",
+        "grunt-exec": "*",
+        "grunt-contrib-uglify": "*",
+        "grunt-contrib-concat": "*",
+        "grunt-contrib-copy": "*",
+        "grunt-contrib-watch": "*",
+        "grunt-contrib-less": "*"
+    }
+}
