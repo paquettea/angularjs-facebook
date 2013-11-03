@@ -64,17 +64,33 @@ module.exports = function(grunt) {
             }
         },
         watch: {
+            dev : {
+                files: ["src/**"],
+                tasks: ['dev'],
+                options: {
+                    spawn: false
+                }
+            },
             alex : {
                 files: ["src/**"],
-                tasks: ['dev-alex']
+                tasks: ['dev-alex'],
+                options: {
+                    spawn: false
+                }
             },
             "alex-laptop" : {
                 files: ["src/**"],
-                tasks: ['dev-alex-laptop']
+                tasks: ['dev-alex-laptop'],
+                options: {
+                    spawn: false
+                }
             },
             stephane : {
                 files: ["src/**"],
-                tasks: ['dev-stephane']
+                tasks: ['dev-stephane'],
+                options: {
+                    spawn: false
+                }
             }
 
         }
@@ -90,7 +106,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('dev', ['copy', 'concat','less:development','uglify','watch:alex']);
+    grunt.registerTask('dev', ['copy', 'concat','less:development','uglify','watch:dev']);
     grunt.registerTask('dev-alex', ['copy', 'concat','less:development','uglify','exec:rsyncalex','watch:alex']);
     grunt.registerTask('dev-alex-laptop', ['copy', 'concat','less:development','uglify','exec:rsyncalexlaptop','watch:alex-laptop']);
     grunt.registerTask('dev-stephane', ['copy', 'concat','less:development','uglify','exec:rsyncstephane','watch:stephane']);
