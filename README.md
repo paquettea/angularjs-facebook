@@ -16,7 +16,7 @@ Have nodejs installed http://nodejs.org
 run the followings in the clone folder
 
 ```sh
-$ `npm install`
+$ npm install
 $ npm -g install grunt-cli karma bower
 $ npm install
 $ grunt dev

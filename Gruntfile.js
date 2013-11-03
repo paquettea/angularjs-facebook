@@ -11,9 +11,16 @@ module.exports = function(grunt) {
                 dest: 'dist'
             }
         },
-        concat :{
+        ngmin :{
             dist:{
-                src: ['src/**/*.js'],
+                src: [  'src/js/module.js',
+                        'src/js/init.js',
+                        'src/js/config/**/*.js',
+                        'src/js/common/**/*.js',
+                        'src/js/wall/**/*.js',
+                        'src/js/newsfeed/**/*.js',
+                        'src/js/messages/**/*.js'
+                ],
                 dest: 'dist/js/scripts.js'
             }/*,
             vendors:{
@@ -102,13 +109,13 @@ module.exports = function(grunt) {
     //grunt.loadNpmTasks('grunt-contrib-jshint');
     //grunt.loadNpmTasks('grunt-contrib-qunit');
     grunt.loadNpmTasks('grunt-contrib-less');
-    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks("grunt-ngmin");
 
-    grunt.registerTask('dev', ['copy', 'concat','less:development','uglify','watch:dev']);
-    grunt.registerTask('dev-alex', ['copy', 'concat','less:development','uglify','exec:rsyncalex','watch:alex']);
-    grunt.registerTask('dev-alex-laptop', ['copy', 'concat','less:development','uglify','exec:rsyncalexlaptop','watch:alex-laptop']);
-    grunt.registerTask('dev-stephane', ['copy', 'concat','less:development','uglify','exec:rsyncstephane','watch:stephane']);
-    grunt.registerTask('prod', ['copy', 'concat','less:production','uglify']);
+    grunt.registerTask('dev', ['copy', 'ngmin','less:development','uglify','watch:dev']);
+    grunt.registerTask('dev-alex', ['copy', 'ngmin','less:development','uglify','exec:rsyncalex','watch:alex']);
+    grunt.registerTask('dev-alex-laptop', ['copy', 'ngmin','less:development','uglify','exec:rsyncalexlaptop','watch:alex-laptop']);
+    grunt.registerTask('dev-stephane', ['copy', 'ngmin','less:development','uglify','exec:rsyncstephane','watch:stephane']);
+    grunt.registerTask('prod', ['copy', 'ngmin','less:production','uglify']);
 };

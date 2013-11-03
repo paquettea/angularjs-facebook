@@ -5,9 +5,9 @@
     "dependencies": {
         "grunt": "*",
         "karma": "*",
+        "grunt-ngmin": "*",
         "grunt-exec": "*",
         "grunt-contrib-uglify": "*",
-        "grunt-contrib-concat": "*",
         "grunt-contrib-copy": "*",
         "grunt-contrib-watch": "*",
         "grunt-contrib-less": "*"
