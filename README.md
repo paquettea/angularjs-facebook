@@ -19,6 +19,7 @@ run the followings in the clone folder
 $ npm install
 $ npm -g install grunt-cli karma bower
 $ npm install
+$ bower install
 $ grunt dev
 ```
 

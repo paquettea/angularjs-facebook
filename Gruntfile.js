@@ -13,7 +13,8 @@ module.exports = function(grunt) {
         },
         ngmin :{
             dist:{
-                src: [  'src/js/module.js',
+                src: [  'bower_components/sugar/release/sugar.min.js',
+                        'src/js/module.js',
                         'src/js/init.js',
                         'src/js/config/**/*.js',
                         'src/js/common/**/*.js',

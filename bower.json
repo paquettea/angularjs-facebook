@@ -1,0 +1,8 @@
+{
+    "name": "angularjs-facebook",
+    "description": "Builds static files",
+    "version": "0.0.1",
+    "dependencies": {
+        "sugar": "*"
+    }
+}

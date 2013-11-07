@@ -1,1 +1,15 @@
-This is the news feed
+<button ng-click="refreshCache()">Load new data </button>
+<div class="newsfeed">
+    <div class="post" ng-repeat="post in feed">
+        <img ng-repeat="picture in post.pictures" ng-show="post.pictures" ng-src="{{ picture.src}} " />
+        <p ng-show="post.description">{{ post.description }}</p>
+        <div class="post-att-link" ng-repeat="attachedLink in post.attachedLink" ng-show="post.attachedLink.length > 0">
+            <a ng-href="{{ attachedLink.href }}">
+                <img ng-show="attachedLink.src" ng-src="{{ attachedLink.src}} " />
+            </a>
+        </div>
+        <p ng-show="post.message">{{ post.message }}</p>
+        <a ng-href="{{ post.link }}">{{ post.link }}</a>
+        <hr />
+    </div>
+</div>
