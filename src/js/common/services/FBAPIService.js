@@ -49,7 +49,7 @@ angular.module("paquettea.facebook.common").factory("FBAPIService",function($htt
        },
        feed:function(user){
 
-           return _apiFQLCall("SELECT message, description,attachment FROM stream WHERE filter_key='nf' ORDER BY updated_time DESC LIMIT 20");
+           return _apiFQLCall("SELECT actor_id, message, description,attachment FROM stream WHERE filter_key='nf' ORDER BY updated_time DESC LIMIT 20");
            //return _apiCall('/' + user + '/home');
 
        }

@@ -1,6 +1,7 @@
 angular.module("paquettea.facebook.newsfeed").factory("NewsfeedService",function(
     AuthenticationService,
     FBAPIService,
+    StorageService,
     FBDataStandarizer){
 
     return {
@@ -8,27 +9,21 @@ angular.module("paquettea.facebook.newsfeed").factory("NewsfeedService",function
             return AuthenticationService.mustBeLoggedIn()
                 .then(function(){
                     //console.log("ok");
-                    var cachedContent =localStorage.getItem("newsfeed");
+                    var cachedContent = StorageService.get("newsfeed");
                     if (cachedContent != null){
-                        cachedContent = JSON.parse(cachedContent);
                         return cachedContent;
                     }else{
                         return FBAPIService.feed(AuthenticationService.userInfo.userID)
                             .then(function(feedData){
-                                //console.log(FBDataStandarizer);
-
-                                    var feed =  FBDataStandarizer.post(feedData);
-                                    localStorage.setItem("newsfeed",JSON.stringify(feed));
-                                    return feed;
-
-
-
+                                var feed =  FBDataStandarizer.post(feedData);
+                                StorageService.set("newsfeed",feed);
+                                return feed;
                             })
                     }
                 });
         },
         clearCache : function(){
-            localStorage.removeItem("newsfeed");
+            StorageService.remove("newsfeed");
         }
     }
 });

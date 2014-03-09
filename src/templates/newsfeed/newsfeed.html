@@ -1,11 +1,18 @@
 <button ng-click="refreshCache()">Load new data </button>
 <div class="newsfeed">
     <div class="post" ng-repeat="post in feed">
-        <img ng-repeat="picture in post.pictures" ng-show="post.pictures" ng-src="{{ picture.src}} " />
+        <img class="actor" ng-src="{{post.actor.picture}}" />
+        <div class="pictures" ng-repeat="picture in post.pictures" ng-show="post.pictures">
+            <img ng-src="{{ picture.src}} " />
+            <p ng-show="{{ picture.description }}">{{ picture.description }}</p>
+        </div>
         <p ng-show="post.description">{{ post.description }}</p>
         <div class="post-att-link" ng-repeat="attachedLink in post.attachedLink" ng-show="post.attachedLink.length > 0">
-            <a ng-href="{{ attachedLink.href }}">
+            <a class="attached-link" ng-href="{{ attachedLink.href }}">
                 <img ng-show="attachedLink.src" ng-src="{{ attachedLink.src}} " />
+                <p ng-show="attachedLink.description">
+                    {{ attachedLink.description }}
+                </p>
             </a>
         </div>
         <p ng-show="post.message">{{ post.message }}</p>
